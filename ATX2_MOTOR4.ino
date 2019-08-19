@@ -1,5 +1,20 @@
 #include <ATX2.h>
 
+#define DRIVER1_IN1 19
+#define DRIVER1_IN2 16
+#define DRIVER1_IN3 17
+#define DRIVER1_IN4 20
+#define DRIVER1_EN1 15
+#define DRIVER1_EN2 30
+
+
+#define DRIVER2_IN1 6
+#define DRIVER2_IN2 5
+#define DRIVER2_IN3 4
+#define DRIVER2_IN4 7 
+#define DRIVER2_EN1 14
+#define DRIVER2_EN2 13
+
 
 void setup(){
   OK();
@@ -42,22 +57,22 @@ void loop(){
 //  analogWrite(30,255);
 
 
-  digitalWrite(6,HIGH);
-  digitalWrite(5,HIGH);
-  analogWrite(14,255);
+  digitalWrite(DRIVER2_IN1,HIGH);
+  digitalWrite(DRIVER2_IN2,LOW);
+  analogWrite(DRIVER2_EN1,255);
 
 //
-  digitalWrite(7,HIGH);
-  digitalWrite(4,HIGH);
-  analogWrite(13,255);
+  digitalWrite(DRIVER2_IN4,HIGH);
+  digitalWrite(DRIVER2_IN3,LOW);
+  analogWrite(DRIVER2_EN2,255);
 
-  digitalWrite(19,HIGH);
-  digitalWrite(16,HIGH);
-  analogWrite(15,255);
+  digitalWrite(DRIVER1_IN1,HIGH);
+  digitalWrite(DRIVER1_IN2,LOW);
+  analogWrite(DRIVER1_EN1,255);
 
 //
-  digitalWrite(20,HIGH);
-  digitalWrite(17,HIGH);
-  analogWrite(30,255);
+  digitalWrite(DRIVER1_IN4,HIGH);
+  digitalWrite(DRIVER1_IN3,LOW);
+  analogWrite(DRIVER1_EN2,255);
 
 }
