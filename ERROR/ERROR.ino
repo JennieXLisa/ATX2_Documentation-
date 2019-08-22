@@ -29,7 +29,7 @@ void STOP();
 
 
 void setup(){
-  OK();
+  //OK();
   //XIO();
   pinMode(6,OUTPUT);
   pinMode(5,OUTPUT);
@@ -56,6 +56,16 @@ void loop(){
   total_ch2 = total_ch2 - readings_ch2[readIndex];
   readings_ch1[readIndex] = pulseIn(ch1, HIGH, 25000);
   readings_ch2[readIndex] = pulseIn(ch2, HIGH, 25000);
+  
+  double rc1 = pulseIn(ch1, HIGH, 25000);
+  double rc2 = pulseIn(ch2, HIGH, 25000);
+  Serial.print("Normal RC1: ");
+  Serial.print(rc1);
+  Serial.print(" | ");
+  Serial.print("Normal RC2: ");
+  Serial.println(rc2);
+  
+  delay(10);
   total_ch1= total_ch1 + readings_ch1[readIndex];
   total_ch2= total_ch2 + readings_ch2[readIndex];
   readIndex = readIndex + 1;
@@ -67,8 +77,9 @@ void loop(){
   
   average_ch1 = total_ch1 / numReadings;
   average_ch2 = total_ch2 / numReadings;
+  Serial.print("Average RC1: ");
   Serial.print(average_ch1);
-  Serial.print(" | ");
+  Serial.print(" Average RC2: ");
   Serial.println(average_ch2);
   glcd(0,1,"%d",average_ch1);
   glcd(1,1,"%d",average_ch2);
